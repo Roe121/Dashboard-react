@@ -1,8 +1,6 @@
-import React from 'react'
-import 
-{BsCart3, BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, 
-  BsListCheck, BsMenuButtonWideFill, BsFillGearFill}
- from 'react-icons/bs'
+import React from "react";
+import { SideBarData } from "../src/data";
+import {BsCart3} from 'react-icons/bs'
 
 function Sidebar() {
   return (
@@ -15,41 +13,14 @@ function Sidebar() {
       </div>
 
       <ul className="sidebar-list">
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsGrid1X2Fill className="icon" /> Tableau de bord
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsFillArchiveFill className="icon" /> Produits
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsFillGrid3X3GapFill className="icon" /> Categories
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsPeopleFill className="icon" /> Clients
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsListCheck className="icon" /> Inventaire
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsMenuButtonWideFill className="icon" /> Raports
-          </a>
-        </li>
-        <li className="sidebar-list-item">
-          <a href="">
-            <BsFillGearFill className="icon" /> Paramètres
-          </a>
-        </li>
+        {SideBarData.map((item) => (
+          <li className="sidebar-list-item">
+            <a href="">
+              {<item.icon className="icon" />}
+              {item.name}
+            </a>
+          </li>
+        ))}
       </ul>
     </aside>
   );
