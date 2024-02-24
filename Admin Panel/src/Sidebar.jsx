@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { SideBarData } from "../src/data";
-import {BsCart3} from 'react-icons/bs'
+import { BsCart3 } from "react-icons/bs";
 
 function Sidebar() {
+  const [active, setActive] = useState("Tableau de bord");
   return (
     <aside id="sidebar">
       <div className="sidebar-title">
@@ -14,8 +15,15 @@ function Sidebar() {
 
       <ul className="sidebar-list">
         {SideBarData.map((item) => (
-          <li className="sidebar-list-item">
-            <a href="">
+          <li
+            className={`${
+              active === item.name
+                ? "sidebar-list-item active"
+                : "sidebar-list-item"
+            }`}
+            onClick={() => setActive(item.name)}
+          >
+            <a href="#">
               {<item.icon className="icon" />}
               {item.name}
             </a>
