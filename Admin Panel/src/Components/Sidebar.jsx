@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { SideBarData } from "../src/data";
+import { SideBarData } from "../data";
 import { BsCart3 } from "react-icons/bs";
+import { Link } from "react-router-dom";
+
 
 function Sidebar() {
   const [active, setActive] = useState("Tableau de bord");
@@ -23,10 +25,12 @@ function Sidebar() {
             }`}
             onClick={() => setActive(item.name)}
           >
-            <a href="#">
+            <Link
+              to={item.link}
+            >
               {<item.icon className="icon" />}
               {item.name}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

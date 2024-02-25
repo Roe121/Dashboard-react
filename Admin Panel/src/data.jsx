@@ -4,30 +4,37 @@ import { BsGrid1X2Fill, BsFillArchiveFill, BsFillGrid3X3GapFill, BsPeopleFill, B
 export const SideBarData = [
     {
         name: "Tableau de bord",
-        icon: BsGrid1X2Fill
+        icon: BsGrid1X2Fill,
+        link: "/",
     },
     {
         name: "Produits",
-        icon: BsFillArchiveFill
+        icon: BsFillArchiveFill,
+        link: "/Products",
     },
     {
         name: "Categories",
-        icon: BsFillGrid3X3GapFill
+        icon: BsFillGrid3X3GapFill,
+        link: "/Categoris",
     },
     {
         name: "Clients",
-        icon: BsPeopleFill
+        icon: BsPeopleFill,
+        link: "/Clients",
     },
     {
         name: "Inventaire",
-        icon: BsListCheck
+        icon: BsListCheck,
+        link: "/Inventory",
     },
     {
         name: "Raports",
-        icon: BsMenuButtonWideFill
+        icon: BsMenuButtonWideFill,
+        link: "/Reports",
     },
     {
         name: "Paramètres",
-        icon: BsFillGearFill
+        icon: BsFillGearFill,
+        link: "/Settings",
     },
 ];
