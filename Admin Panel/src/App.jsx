@@ -9,6 +9,8 @@ import Categoris from "./Sections/Categoris";
 
 import CreateProduct from "./Components/Products/CreateProduct";
 import UpdateProduct from "./Components/Products/UpdateProduct";
+import CreateClient from "./Components/Clients/CreateClient";
+import UpdateClient from "./Components/Clients/UpdateClient";
 
 function App() {
   return (
@@ -26,6 +28,10 @@ function App() {
            
           <Route path='/createProduct' element={<CreateProduct />}></Route>
           <Route path='/updateProduct/:id' element={<UpdateProduct />}></Route>
+
+          <Route path='/createClient' element={<CreateClient />}></Route>
+          <Route path='/updateClient/:id' element={<UpdateClient />}></Route>
+
         </Routes>
       </Router>
     </div>
