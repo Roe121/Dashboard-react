@@ -8,6 +8,7 @@ import Clients from "./Sections/Clients";
 import Categoris from "./Sections/Categoris";
 
 import CreateProduct from "./Components/Products/CreateProduct";
+import UpdateProduct from "./Components/Products/UpdateProduct";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
 
            
           <Route path='/createProduct' element={<CreateProduct />}></Route>
+          <Route path='/updateProduct/:id' element={<UpdateProduct />}></Route>
         </Routes>
       </Router>
     </div>

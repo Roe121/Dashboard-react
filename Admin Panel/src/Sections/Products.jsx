@@ -16,6 +16,17 @@ function Products() {
   })
     .catch(err => console.log(err))
   },[])
+
+
+  const handleDelete = (id) => {
+    axios
+      .delete("http://localhost:3001/deleteProduct/" + id )
+      .then((result) => {
+        console.log(result)
+        navigate("/Products");
+      })
+      .catch((err) => console.log(err));
+  };
   
 return (
   
@@ -43,8 +54,10 @@ return (
                       <td>{product.description}</td>
                       <td>{product.stock}</td>
                       <td>
-                          <Link to="/" className="btn btn-sm btn-success me-2">Update</Link>
-                          <button className="btn btn-sm btn-danger">Delete</button>
+                          <Link to={`/UpdateProduct/${product._id}`} className="btn btn-sm btn-success me-2">Update</Link>
+                          <button className="btn btn-sm btn-danger"
+                          onClick={handleDelete(product._id)}
+                          >Delete</button>
                       </td>
                   </tr>
               })

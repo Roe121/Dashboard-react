@@ -17,7 +17,7 @@ function Sidebar() {
 
       <ul className="sidebar-list">
         {SideBarData.map((item) => (
-          <li
+          <li key={item.id}
             className={`${
               active === item.name
                 ? "sidebar-list-item active"

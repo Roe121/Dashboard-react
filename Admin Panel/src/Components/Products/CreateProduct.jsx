@@ -24,8 +24,8 @@ function CreateProduct() {
     }
 
   return (
-    <div className="d-flex vh-100 bg-primary justify-content-center align-items-center">
-      <div className="w-50 bg-white rounded p-3">
+    
+      <div className="w-100 bg-white rounded p-3">
         <form onSubmit={handleSubmit}>
           <h2>Ajouter un Produit</h2>
           <div className="mb-2">
@@ -76,7 +76,7 @@ function CreateProduct() {
           <button className="btn btn-success">Submit</button>
         </form>
       </div>
-    </div>
+
   );
 }
 
