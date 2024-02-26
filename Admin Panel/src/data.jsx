@@ -13,14 +13,14 @@ export const SideBarData = [
         link: "/Products",
     },
     {
-        name: "Categories",
-        icon: BsFillGrid3X3GapFill,
-        link: "/Categoris",
-    },
-    {
         name: "Clients",
         icon: BsPeopleFill,
         link: "/Clients",
+    },
+    {
+        name: "Categories",
+        icon: BsFillGrid3X3GapFill,
+        link: "/Categoris",
     },
     {
         name: "Inventaire",
