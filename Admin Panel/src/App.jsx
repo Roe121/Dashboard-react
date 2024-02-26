@@ -7,6 +7,8 @@ import Products from "./Sections/Products";
 import Clients from "./Sections/Clients";
 import Categoris from "./Sections/Categoris";
 
+import CreateProduct from "./Components/Products/CreateProduct";
+
 function App() {
   return (
     <div className="grid-container">
@@ -19,6 +21,9 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/Clients" element={<Clients />} />
           <Route path="/Categoris" element={<Categoris />} />
+
+           
+          <Route path='/createProduct' element={<CreateProduct />}></Route>
         </Routes>
       </Router>
     </div>
