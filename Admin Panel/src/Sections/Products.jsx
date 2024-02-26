@@ -1,12 +1,14 @@
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 
 function Products() {
 
   const [products, setProducts] = useState([]);
+  const navigate = useNavigate()
+
 
   useEffect(()=>{
     axios.get('http://localhost:3001/getProducts')
@@ -23,7 +25,7 @@ function Products() {
       .delete("http://localhost:3001/deleteProduct/" + id )
       .then((result) => {
         console.log(result)
-        navigate("/Products");
+        window.location.reload()
       })
       .catch((err) => console.log(err));
   };
@@ -56,7 +58,7 @@ return (
                       <td>
                           <Link to={`/UpdateProduct/${product._id}`} className="btn btn-sm btn-success me-2">Update</Link>
                           <button className="btn btn-sm btn-danger"
-                          onClick={handleDelete(product._id)}
+                          onClick={(e) => handleDelete(product._id)}
                           >Delete</button>
                       </td>
                   </tr>

@@ -70,3 +70,11 @@ app.put('/updateProduct/:id', (req, res) => {
   }).then(products => res.json(products))
   .catch(err => res.json(err))
 })
+
+
+app.delete('/deleteProduct/:id', (req, res) => {
+  const id = req.params.id;
+  ProductModel.findByIdAndDelete({_id: id})
+  .then(response => res.json(response))
+  .catch(err => res.json(err))
+})
