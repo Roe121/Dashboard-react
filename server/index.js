@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const ProductModel = require("./models/products");
+const ClientModel = require("./models/clients");
 
 const app = express();
 app.use(cors());
@@ -22,7 +23,7 @@ mongoose
   });
 
 
-  // API handlers --------------------------------------
+  // Product API handlers --------------------------------------
 
 
 
@@ -75,6 +76,67 @@ app.put('/updateProduct/:id', (req, res) => {
 app.delete('/deleteProduct/:id', (req, res) => {
   const id = req.params.id;
   ProductModel.findByIdAndDelete({_id: id})
+  .then(response => res.json(response))
+  .catch(err => res.json(err))
+})
+
+
+
+
+// Clients API handlers --------------------------------------
+
+
+
+app.post('/createClient', async(req,res) => {
+  const client = new ClientModel(req.body)
+  try{
+      await client.save()
+      res.status(201).json({
+          status: 'Success',
+          data : {
+              client
+          }
+      })
+  }catch(err){
+      res.status(500).json({
+          status: 'Failed',
+          message : err
+      })
+  }
+})
+
+app.get('/getClients', (req, res) => {
+  ClientModel.find()
+  .then(clients => res.json(clients))
+  .catch(err => res.json(err))
+})
+
+app.get('/getClient/:id', (req, res) => {
+  const id = req.params.id;
+  ClientModel.findById({_id:id})
+  .then(clients => res.json(clients))
+  .catch(err => res.json(err))
+})
+
+app.put('/updateClient/:id', (req, res) => {
+  const id = req.params.id;
+  ClientModel.findByIdAndUpdate({_id: id}, {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    address: req.body.address,
+    age: req.body.age,
+    gender: req.body.gender,
+
+  }).then(products => res.json(products))
+  .catch(err => res.json(err))
+})
+
+
+app.delete('/deleteClient/:id', (req, res) => {
+  const id = req.params.id;
+  ClientModel.findByIdAndDelete({_id: id})
   .then(response => res.json(response))
   .catch(err => res.json(err))
 })
