@@ -80,6 +80,17 @@ app.delete('/deleteProduct/:id', (req, res) => {
   .catch(err => res.json(err))
 })
 
+// Endpoint pour récupérer le nombre total de produits
+app.get('/getTotalProducts', async (req, res) => {
+  try {
+    const totalProducts = await ProductModel.countDocuments({});
+    res.json({ totalProducts });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+
 
 
 
