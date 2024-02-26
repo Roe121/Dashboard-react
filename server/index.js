@@ -19,6 +19,12 @@ mongoose
     console.error("Error connecting to database:", err);
   });
 
+  app.get('/getProducts', (req, res) => {
+    ProductModel.find()
+    .then(products => res.json(products))
+    .catch(err => res.json(err))
+})
+
 
 app.post('/createProduct', async(req,res) => {
     const product = new ProductModel(req.body)

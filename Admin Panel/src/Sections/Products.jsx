@@ -1,28 +1,21 @@
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 
 function Products() {
 
-  const products = [
-    {
-      _id: 1,
-      name: "Produit 1",
-      category: "Catégorie 1",
-      price: 20.99,
-      description: "Description du produit 1",
-      stock: 100,
-    },
-    {
-      _id: 2,
-      name: "Produit 2",
-      category: "Catégorie 2",
-      price: 25.99,
-      description: "Description du produit 2",
-      stock: 50,
-    },
-  ];
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=>{
+    axios.get('http://localhost:3001/getProducts')
+    .then(result => {
+    console.log(result.data)
+    setProducts(result.data)
+  })
+    .catch(err => console.log(err))
+  },[])
   
 return (
   
@@ -43,7 +36,7 @@ return (
         <tbody>
           {
               products.map(product => {
-                  return <tr>
+                  return <tr key={product._id}>
                       <td>{product.name}</td>
                       <td>{product.category}</td>
                       <td>{product.price}</td>
