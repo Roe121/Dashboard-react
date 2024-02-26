@@ -19,9 +19,21 @@ mongoose
     console.error("Error connecting to database:", err);
   });
 
-app.post("/createProduct", (req, res) => {
-  ProductModel.create(req.body)
-    .then((products) => res.json(products))
-    .catch((err) => res.json(err));
-});
 
+app.post('/createProduct', async(req,res) => {
+    const product = new ProductModel(req.body)
+    try{
+        await product.save()
+        res.status(201).json({
+            status: 'Success',
+            data : {
+                product
+            }
+        })
+    }catch(err){
+        res.status(500).json({
+            status: 'Failed',
+            message : err
+        })
+    }
+})
