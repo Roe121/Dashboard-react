@@ -68,6 +68,8 @@ const Home = () => {
   ];
 
   const [totalProducts, setTotalProducts] = useState(0);
+  const [totalClients, setTotalClients] = useState(0);
+
 
   useEffect(() => {
     axios.get('http://localhost:3001/getTotalProducts')
@@ -77,6 +79,15 @@ const Home = () => {
       .catch(error => {
         console.error('Error fetching total products:', error);
       });
+
+      axios.get('http://localhost:3001/getTotalClients')
+      .then(response => {
+        setTotalClients(response.data.totalClients);
+      })
+      .catch(error => {
+        console.error('Error fetching total products:', error);
+      });
+
   }, []);
 
 
@@ -106,7 +117,7 @@ const Home = () => {
             <h3>Clients</h3>
             <BsPeopleFill className="card-icon" />
           </div>
-          <h1>35</h1>
+          <h1>{totalClients}</h1>
         </div>
         <div className="card">
           <div className="card-inner">
