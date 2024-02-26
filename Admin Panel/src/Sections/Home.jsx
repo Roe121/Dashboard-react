@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   BsFillArchiveFill,
   BsFillGrid3X3GapFill,
@@ -66,6 +67,19 @@ const Home = () => {
     },
   ];
 
+  const [totalProducts, setTotalProducts] = useState(0);
+
+  useEffect(() => {
+    axios.get('http://localhost:3001/getTotalProducts')
+      .then(response => {
+        setTotalProducts(response.data.totalProducts);
+      })
+      .catch(error => {
+        console.error('Error fetching total products:', error);
+      });
+  }, []);
+
+
   return (
     <main className="main-container">
       <div className="main-title">
@@ -77,7 +91,7 @@ const Home = () => {
             <h3>Produits</h3>
             <BsFillArchiveFill className="card-icon" />
           </div>
-          <h1>300</h1>
+          <h1>{totalProducts}</h1>
         </div>
         <div className="card">
           <div className="card-inner">

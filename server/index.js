@@ -151,3 +151,12 @@ app.delete('/deleteClient/:id', (req, res) => {
   .then(response => res.json(response))
   .catch(err => res.json(err))
 })
+
+app.get('/getTotalClients', async (req, res) => {
+  try {
+    const totalClients = await ClientModel.countDocuments({});
+    res.json({ totalClients });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
