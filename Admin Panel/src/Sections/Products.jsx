@@ -29,12 +29,12 @@ function Products() {
       })
       .catch((err) => console.log(err));
   };
-  
+
 return (
   
-    <div className="w-100 bg-white rounded p-3">
+    <div className="w-100 rounded p-5 ">
       <Link to="/createProduct" className="btn btn-success btn-sm">
-        Add +
+        Ajouter un produit
       </Link>
       <table className="table">
         <thead>
@@ -44,6 +44,7 @@ return (
             <th>Prix</th>
             <th>Description</th>
             <th>Stock</th>
+            <th>Opérations</th>
           </tr>
         </thead>
         <tbody>
@@ -56,10 +57,10 @@ return (
                       <td>{product.description}</td>
                       <td>{product.stock}</td>
                       <td>
-                          <Link to={`/UpdateProduct/${product._id}`} className="btn btn-sm btn-success me-2">Update</Link>
+                          <Link to={`/UpdateProduct/${product._id}`} className="btn btn-sm btn-success me-2">Mettre à jour</Link>
                           <button className="btn btn-sm btn-danger"
                           onClick={(e) => handleDelete(product._id)}
-                          >Delete</button>
+                          >Supprimer</button>
                       </td>
                   </tr>
               })

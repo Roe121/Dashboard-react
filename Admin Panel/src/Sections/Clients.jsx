@@ -33,7 +33,7 @@ function Clients() {
   return (
     <div className="w-100 bg-white rounded p-3">
         <Link to="/createClient" className="btn btn-success btn-sm">
-            Ajouter +
+            Ajouter un client
         </Link>
         <table className="table">
             <thead>
@@ -45,6 +45,7 @@ function Clients() {
                     <th>Adresse</th>
                     <th>Âge</th>
                     <th>Genre</th>
+                    <th>Opérations</th>
                 </tr>
             </thead>
             <tbody>

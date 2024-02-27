@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+*{
+  font-family: "League Spartan", sans-serif;
+}
+
 body {
     margin: 0;
     padding: 0;
     background-color: #1d2634;
-    color: #9e9ea4;
-    font-family: 'Montserrat', sans-serif;
+    color: #9e9ea4;    
   }
   
   .icon {
@@ -29,12 +33,13 @@ body {
   
   .grid-container {
     display: grid;
-    grid-template-columns: 260px 1fr 1fr 1fr;
+    grid-template-columns: 260px 3fr;
     grid-template-rows: 0.2fr 3fr;
     grid-template-areas:
       'sidebar header header header'
       'sidebar main main main';
     height: 100vh;
+
   }
   
   /* Header  */
@@ -150,19 +155,23 @@ body {
   }
   
   .card:first-child {
-    background-color: #2962ff;
+    background-color: #a3bcff;
+    border: 0;
   }
   
   .card:nth-child(2) {
-    background-color: #ff6d00;
+    background-color: #ffcaa2;
+    border: 0;
   }
   
   .card:nth-child(3) {
-    background-color: #2e7d32;
+    background-color: #c5ffc8;
+    border: 0;
   }
   
   .card:nth-child(4) {
-    background-color: #d50000;
+    background-color: #ff7474;
+    border: 0;
   }
   
   .card-inner {
@@ -177,7 +186,7 @@ body {
   
   .charts {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     margin-top: 60px;
     height: 300px;
@@ -185,7 +194,11 @@ body {
   
   /* End Main  */
   
-  
+  tbody, td, tfoot, th, thead, tr {
+
+    text-align: center;
+}
+
   /* Medium <= 992px */
     
   @media screen and (max-width: 992px) {

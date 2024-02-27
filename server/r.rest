@@ -1,2 +1,12 @@
+POST http://localhost:3001/createProduct
+Content-Type:  application/json
 
-GET http://localhost:3001/getTotalProducts
+{
+  "name": "Nom du produit 7",
+  "category": "Categorie du produit 1",
+  "price": "20",
+  "description": "Description 1",
+  "stock": "100"
+}
+
+###
