@@ -122,6 +122,8 @@ app.get('/getClients', (req, res) => {
   .catch(err => res.json(err))
 })
 
+
+
 app.get('/getClient/:id', (req, res) => {
   const id = req.params.id;
   ClientModel.findById({_id:id})
